@@ -3,7 +3,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mycompany</groupId>
-	<artifactId>mule-git</artifactId>
+	<artifactId>mule-git-sreetest</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>mule</packaging>
 	<name>Mule mule-git Application</name>
@@ -12,7 +12,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<mule.version>3.8.1</mule.version>
+		<mule.version>3.8.3</mule.version>
     	<mule.tools.version>1.2</mule.tools.version>
 	</properties>
 
@@ -54,13 +54,13 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
+		 <plugin>
 		    <groupId>org.mule.tools.maven</groupId>
 		    <artifactId>mule-maven-plugin</artifactId>
 		    <version>2.0</version>
 		    <configuration>
 		        <deploymentType>standalone</deploymentType>
-		        <muleHome>D:\SreeLabs\mule-runtime-bundle-3.8\mule-runtime-bundle-3.8\mule-3.8.3</muleHome>
+		        <muleHome>D:\SreeLabs\mule-runtime-bundle-3.8\mule-runtime-bundle-3.8\mule-3.8.3\</muleHome>
 		    </configuration>
 		    <executions>
 		        <execution>
@@ -71,37 +71,43 @@
 		            </goals>
 		        </execution>
 		    </executions>
-		</plugin>
-			<plugin>
-    <groupId>org.mule.tools.maven</groupId>
-    <artifactId>mule-maven-plugin</artifactId>
-    <version>2.2.1</version>
-    <configuration>
-        <deploymentType>arm</deploymentType>
-        <username>sri2018</username>
-        <password>Sree@007</password>
-        <target>79e11410-3ba9-40fa-8f4b-1adc359b3089</target>
-        <!-- One of: server, serverGroup, cluster -->
-        <targetType>server</targetType>
-        <environment>Sandbox</environment>
-    </configuration>
-    <executions>
-        <execution>
-            <id>deploy</id>
-            <phase>deploy</phase>
-            <goals>
-                <goal>deploy</goal>
-            </goals>
-        </execution>
-    </executions>
-</plugin>
-		</plugins>
+		</plugin> 
+		<plugin>
+		    <groupId>org.mule.tools.maven</groupId>
+		    <artifactId>mule-maven-plugin</artifactId>
+		    <version>2.0</version>
+		    <configuration>
+		        <deploymentType>cloudhub</deploymentType>
+		        <!-- muleVersion is the runtime version as it appears on the CloudHub interface -->
+		        <muleVersion>3.9.0</muleVersion>
+		        <username>sri2018</username>
+		        <password>Sree@007</password>
+		        <redeploy>true</redeploy>
+		        <environment>Design</environment>
+		    </configuration>
+		    <executions>
+		        <execution>
+		            <id>deploy</id>
+		            <phase>deploy</phase>
+		            <goals>
+		                <goal>deploy</goal>
+		            </goals>
+		        </execution>
+		    </executions>
+		</plugin>	
+		</plugins> 
 	</build>
+	<distributionManagement>
+       <repository>
+         <id>internal.repo</id>
+         <name>Internal repo</name>
+         <url>file:///D://training//mule-git//target/</url>
+       </repository>
+   </distributionManagement>
 
 	<!-- Mule Dependencies -->
 	<dependencies>
-		<!-- Xml configuration -->
-		
+	
 	</dependencies>
 
 	<repositories>
@@ -128,6 +134,12 @@
                 <enabled>false</enabled>
             </snapshots>
         </pluginRepository>
+
+	    <pluginRepository>
+	        <id>mule-public</id>
+	        <url>https://repository.mulesoft.org/nexus/content/repositories/releases</url>
+	    </pluginRepository>
+
     </pluginRepositories>
 
 </project>
