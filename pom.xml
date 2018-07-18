@@ -3,7 +3,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mycompany</groupId>
-	<artifactId>mule-git-sreetest</artifactId>
+	<artifactId>mule-git</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>mule</packaging>
 	<name>Mule mule-git Application</name>
@@ -12,7 +12,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<mule.version>3.8.3</mule.version>
+		<mule.version>3.7.3</mule.version>
     	<mule.tools.version>1.2</mule.tools.version>
 	</properties>
 
@@ -54,13 +54,13 @@
 					</execution>
 				</executions>
 			</plugin>
-		 <plugin>
+			<!-- <plugin>
 		    <groupId>org.mule.tools.maven</groupId>
 		    <artifactId>mule-maven-plugin</artifactId>
 		    <version>2.0</version>
 		    <configuration>
 		        <deploymentType>standalone</deploymentType>
-		        <muleHome>D:\SreeLabs\mule-runtime-bundle-3.8\mule-runtime-bundle-3.8\mule-3.8.3\</muleHome>
+		        <muleHome>C:\SreekanthK\mule-ee-distribution-standalone-3.7.3\mule-enterprise-standalone-3.7.3\</muleHome>
 		    </configuration>
 		    <executions>
 		        <execution>
@@ -71,20 +71,24 @@
 		            </goals>
 		        </execution>
 		    </executions>
-		</plugin> 
+		</plugin> -->
 		<plugin>
 		    <groupId>org.mule.tools.maven</groupId>
 		    <artifactId>mule-maven-plugin</artifactId>
-		    <version>2.0</version>
+		    <version>2.2.1</version>
 		    <configuration>
-		        <deploymentType>cloudhub</deploymentType>
-		        <!-- muleVersion is the runtime version as it appears on the CloudHub interface -->
-		        <muleVersion>3.9.0</muleVersion>
-		        <username>sri2018</username>
-		        <password>Sree@007</password>
-		        <redeploy>true</redeploy>
-		        <environment>Design</environment>
-		    </configuration>
+             <deploymentType>cloudhub</deploymentType>
+             <muleVersion>3.8.2</muleVersion>
+             <username>skexcent</username>
+             <password>Sree@007</password>
+             <!-- <applicationName>myapplication-maven-1.0</applicationName> -->
+              <!-- <businessGroup>engineering\devops</businessGroup> 
+             <target>CloudHub</target>-->
+             <!-- One of: server, serverGroup, cluster -->
+             <!-- <domain>server</domain>  -->
+             <targetType>server</targetType>
+             <environment>Sandbox</environment>
+         </configuration>
 		    <executions>
 		        <execution>
 		            <id>deploy</id>
@@ -94,14 +98,14 @@
 		            </goals>
 		        </execution>
 		    </executions>
-		</plugin>	
+		</plugin>  
 		</plugins> 
 	</build>
 	<distributionManagement>
        <repository>
          <id>internal.repo</id>
          <name>Internal repo</name>
-         <url>file:///D://training//mule-git//target/</url>
+         <url>file:///C://training//mule-git//mule-git//target/</url>
        </repository>
    </distributionManagement>
 
